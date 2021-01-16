@@ -10,9 +10,12 @@
             "email": "nitingoyal.dev@gmail.com"
         }
     ],
+    "scripts": {
+        "test:migrate": "phpunit --migrate-configuration",
+        "test": "phpunit"
+    },
     "require": {
         "aws/aws-sdk-php-laravel": "^3.0.0",
-        "laravel/framework": "^6.0.0",
         "php": ">=7.3",
         "ext-pdo": "*"
     },
@@ -22,11 +25,22 @@
             "Pixelvide\\DBAuth\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Pixelvide\\DBAuth\\Test\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
                 "Pixelvide\\DBAuth\\Providers\\IamDatabaseConnectorProvider"
-            ]
+            ],
+            "aliases": {
+            }
         }
+    },
+    "require-dev": {
+        "laravel/framework": "^6.0",
+        "orchestra/testbench": "^4"
     }
 }
