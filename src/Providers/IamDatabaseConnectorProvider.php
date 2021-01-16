@@ -19,7 +19,10 @@ class IamDatabaseConnectorProvider extends ServiceProvider
             if ($connection['use_iam_auth']) {
                 switch ($connection['driver']) {
                     case "mysql":
-                        $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MysqlConnector::class);
+                        $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MySqlConnector::class);
+                        break;
+                    case "pgsql":
+                        $this->app->bind('db.connector.pgsql', \Pixelvide\DBAuth\Database\PostgresConnector::class);
                         break;
                 }
             }
