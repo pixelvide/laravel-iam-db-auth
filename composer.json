@@ -21,5 +21,12 @@
         "psr-4": {
             "Pixelvide\\DBAuth\\": "src/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pixelvide\\DBAuth\\Providers\\IamDatabaseConnectorProvider"
+            ]
+        }
     }
 }
