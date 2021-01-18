@@ -1,7 +1,8 @@
 <?php
 
-namespace Pixelvide\DBAuth\Providers;
+namespace Pixelvide\DBAuth;
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 
 class IamDatabaseConnectorProvider extends ServiceProvider
@@ -16,8 +17,8 @@ class IamDatabaseConnectorProvider extends ServiceProvider
     {
         $connections = config('database.connections');
         foreach ($connections as $key => $connection) {
-            if (isset($connection['use_iam_auth']) && $connection['use_iam_auth']) {
-                switch ($connection['driver']) {
+            if (Arr::has($connection, 'use_iam_auth') && Arr::get($connection, 'use_iam_auth')) {
+                switch (Arr::get($connection, 'driver')) {
                     case "mysql":
                         $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MySqlConnector::class);
                         break;

@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Pixelvide\\DBAuth\\Providers\\IamDatabaseConnectorProvider"
+                "Pixelvide\\DBAuth\\IamDatabaseConnectorProvider"
             ],
             "aliases": {
             }

@@ -26,7 +26,7 @@ class MySqlConnector extends DefaultMySqlConnector
      */
     public function createConnection($dsn, array $config, array $options)
     {
-        if (!isset($config['use_iam_auth']) || !(Arr::get($config, 'use_iam_auth'))) {
+        if (!(Arr::has($config, 'use_iam_auth')) || !(Arr::get($config, 'use_iam_auth'))) {
             return parent::createConnection($dsn, $config, $options);
         }
 
@@ -34,7 +34,7 @@ class MySqlConnector extends DefaultMySqlConnector
             Arr::get($config, 'username'),
         ];
 
-        if (!isset($config['aws_profile'])) {
+        if (!(Arr::has($config, 'aws_profile'))) {
             throw new InvalidArgumentException('An AWS Profile must be specified.');
         }
 
