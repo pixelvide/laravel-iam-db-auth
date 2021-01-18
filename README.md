@@ -30,7 +30,7 @@ Add a missing variables in connection to the config array in config/database.php
         'strict' => false,
         'engine' => null,
         'aws_region' => env('AWS_REGION'),
-        'use_iam_auth' => env('DB_USE_IAM_AUTH', false),
+        'use_iam_auth' => env('DB_USE_IAM_AUTH', true),
         'options' => array(
             'MYSQLI_READ_DEFAULT_FILE' => env('MYSQL_CNF_FILE', '/path/to/cnf/file'),
             PDO::MYSQL_ATTR_SSL_CA    => base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'),
@@ -51,7 +51,7 @@ Add a missing variables in connection to the config array in config/database.php
         'password' => '',
         'charset' => 'utf8mb4',
         'aws_region' => env('AWS_REGION'),
-        'use_iam_auth' => env('DB_USE_IAM_AUTH', false),
+        'use_iam_auth' => env('DB_USE_IAM_AUTH', true),
         'sslmode' => 'verify-full',
         'sslrootcert' => base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'),
         'options' => array(
