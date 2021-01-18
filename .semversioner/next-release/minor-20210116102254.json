@@ -1,4 +1,0 @@
-{
-  "type": "minor",
-  "description": "Added Postgres SQL Auth using AWS IAM Creds"
-}

@@ -1,0 +1,10 @@
+[
+  {
+    "description": "Initial Release with Mysql Auth using AWS IAM Creds",
+    "type": "minor"
+  },
+  {
+    "description": "Added Postgres SQL Auth using AWS IAM Creds",
+    "type": "minor"
+  }
+]
