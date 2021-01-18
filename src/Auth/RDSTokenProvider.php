@@ -5,7 +5,7 @@ namespace Pixelvide\DBAuth\Auth;
 use Aws\Credentials\CredentialProvider;
 use Aws\Rds\AuthTokenGenerator;
 use Illuminate\Support\Arr;
-use Illuminate\Filesystem\Cache;
+use Illuminate\Support\Facades\Cache;
 
 class RDSTokenProvider
 {
