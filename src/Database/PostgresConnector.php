@@ -26,7 +26,7 @@ class PostgresConnector extends DefaultPostgresConnector
      */
     public function createConnection($dsn, array $config, array $options)
     {
-        if (!isset($config['use_iam_auth']) || !(Arr::get($config, 'use_iam_auth'))) {
+        if (!isset($config['use_iam_auth']) || !$config['use_iam_auth']) {
             return parent::createConnection($dsn, $config, $options);
         }
 
