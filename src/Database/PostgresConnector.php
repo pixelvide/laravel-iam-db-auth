@@ -34,9 +34,11 @@ class PostgresConnector extends DefaultPostgresConnector
             Arr::get($config, 'username'),
         ];
 
+        /*
         if (!(Arr::has($config, 'aws_profile'))) {
             throw new InvalidArgumentException('An AWS Profile must be specified.');
         }
+        */
 
         $token_provider = new RDSTokenProvider($config);
         try {
