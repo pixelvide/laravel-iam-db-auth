@@ -16,7 +16,7 @@ class IamDatabaseConnectorProvider extends ServiceProvider
     {
         $connections = config('database.connections');
         foreach ($connections as $key => $connection) {
-            if ($connection['use_iam_auth']) {
+            if (isset($connection['use_iam_auth']) && $connection['use_iam_auth']) {
                 switch ($connection['driver']) {
                     case "mysql":
                         $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MySqlConnector::class);
