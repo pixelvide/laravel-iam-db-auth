@@ -1,0 +1,6 @@
+[
+  {
+    "description": "postgresql connector auto add sslmode and sslrootcert when using IAM db auth",
+    "type": "patch"
+  }
+]

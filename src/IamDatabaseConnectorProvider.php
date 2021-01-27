@@ -4,6 +4,7 @@ namespace Pixelvide\DBAuth;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Config;
 
 class IamDatabaseConnectorProvider extends ServiceProvider
 {
@@ -15,7 +16,7 @@ class IamDatabaseConnectorProvider extends ServiceProvider
      */
     public function register()
     {
-        $connections = config('database.connections');
+        $connections = Config::get('database.connections');
         foreach ($connections as $key => $connection) {
             if (Arr::has($connection, 'use_iam_auth') && Arr::get($connection, 'use_iam_auth')) {
                 switch (Arr::get($connection, 'driver')) {
@@ -23,6 +24,10 @@ class IamDatabaseConnectorProvider extends ServiceProvider
                         $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MySqlConnector::class);
                         break;
                     case "pgsql":
+
+                        Config::set('database.connections'.$key.'sslmode', 'verify-full');
+                        Config::set('database.connections'.$key.'sslrootcert', base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'));
+
                         $this->app->bind('db.connector.pgsql', \Pixelvide\DBAuth\Database\PostgresConnector::class);
                         break;
                 }
