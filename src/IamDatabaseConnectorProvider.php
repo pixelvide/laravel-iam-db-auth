@@ -24,11 +24,19 @@ class IamDatabaseConnectorProvider extends ServiceProvider
                         $this->app->bind('db.connector.mysql', \Pixelvide\DBAuth\Database\MySqlConnector::class);
                         break;
                     case "pgsql":
+                        Config::set('database.connections.'.$key.'.sslmode', 'verify-full');
 
-                        Config::set('database.connections'.$key.'sslmode', 'verify-full');
-                        Config::set('database.connections'.$key.'sslrootcert', base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'));
+                        $certPath = realpath(base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'));
+
+                        switch (PHP_OS) {
+                            case 'WINNT':
+                                $certPath = str_replace('\\', '\\\\\\\\', $certPath);
+                                break;
+                        }
+                        Config::set('database.connections.'.$key.'.sslrootcert', $certPath);                   
 
                         $this->app->bind('db.connector.pgsql', \Pixelvide\DBAuth\Database\PostgresConnector::class);
+
                         break;
                 }
             }
