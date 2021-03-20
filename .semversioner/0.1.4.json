@@ -1,0 +1,6 @@
+[
+  {
+    "description": "Cert path fixed when path contains space(s).",
+    "type": "patch"
+  }
+]
