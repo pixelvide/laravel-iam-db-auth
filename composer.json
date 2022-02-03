@@ -1,7 +1,7 @@
 {
     "name": "pixelvide/laravel-iam-db-auth",
     "description": "AWS IAM db auth package for laravel",
-    "version": "0.1.4",
+    "version": "1.0.0",
     "type": "package",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -10,10 +10,7 @@
             "email": "nitingoyal.dev@gmail.com"
         }
     ],
-    "scripts": {
-        "test:migrate": "phpunit --migrate-configuration",
-        "test": "phpunit"
-    },
+    "scripts": {},
     "require": {
         "aws/aws-sdk-php-laravel": "^3.0.0",
         "php": ">=7.3",
@@ -23,11 +20,6 @@
     "autoload": {
         "psr-4": {
             "Pixelvide\\DBAuth\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Pixelvide\\DBAuth\\Test\\": "tests/"
         }
     },
     "extra": {
@@ -40,7 +32,6 @@
         }
     },
     "require-dev": {
-        "laravel/framework": "^6.0",
-        "orchestra/testbench": "^4"
+        "laravel/framework": "^7.0"
     }
 }
