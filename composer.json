@@ -1,7 +1,7 @@
 {
     "name": "pixelvide/laravel-iam-db-auth",
     "description": "AWS IAM db auth package for laravel",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "type": "package",
     "license": "GPL-3.0-or-later",
     "authors": [
@@ -32,6 +32,6 @@
         }
     },
     "require-dev": {
-        "laravel/framework": "^7.0"
+        "laravel/framework": "^8.0"
     }
 }
