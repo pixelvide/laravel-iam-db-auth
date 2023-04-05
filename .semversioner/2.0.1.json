@@ -1,0 +1,6 @@
+[
+  {
+    "description": "Added support to override SSL options for PG",
+    "type": "patch"
+  }
+]
