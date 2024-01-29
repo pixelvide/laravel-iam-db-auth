@@ -29,7 +29,7 @@ class IamDatabaseConnectorProvider extends ServiceProvider
 
                         $certPath = Config::get(
                             'database.connections.'.$key.'.sslrootcert',
-                            realpath(base_path('vendor/pixelvide/laravel-iam-db-auth/certs/rds-ca-2019-root.pem'))
+                            realpath(base_path('vendor/pixelvide/laravel-iam-db-auth/certs/global-bundle.pem'))
                         );
 
                         switch (PHP_OS) {
