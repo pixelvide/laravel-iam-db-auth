@@ -43,14 +43,14 @@ class MySqlConnector extends DefaultMySqlConnector
         $token_provider = new RDSTokenProvider($config);
         try {
             $password = $token_provider->getToken();
-            Log::info('Connecting to db using auth token '.$password);
+            Log::debug('Connecting to db using IAM authentication');
 
             return $this->createPdoConnection(
                 $dsn, $username, $password, $options
             );
         } catch (Exception $e) {
             $password = $token_provider->getToken(true);
-            Log::info('Connecting to db using auth token '.$password);
+            Log::debug('Connecting to db using IAM authentication');
 
             return $this->tryAgainIfCausedByLostConnectionOrBadToken(
                 $e, $dsn, $username, $password, $options
